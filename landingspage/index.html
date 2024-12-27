@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Provider - Consumenten en Zakelijke Markt</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.partner-logos').slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .nav {
+            background: transparent;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav .logo img {
+            height: 60px;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .header {
+            background-image: url('https://www.ittdesk.nl/wp-content/uploads/2014/09/slide_2_itt-1680x1119.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+        }
+
+        .header p {
+            margin: 1rem 0;
+        }
+
+        .header .action-btn {
+            border: 2px solid #000;
+            background: transparent;
+            color: #000;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        .section#producten {
+            padding: 3rem 2rem;
+            background: linear-gradient(35deg, #fff6f0, #fc6b03);
+        }
+
+        .section#producten .cards {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .section#producten .card {
+            background: #fff;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 10px;
+            flex: 1 1 calc(25% - 1.5rem);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .section#producten .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .section#producten .card .action-btn {
+            margin-top: 1rem;
+            background-color: #0073e6;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .section#beloften {
+            background: #fff;
+            padding: 3rem 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .section#beloften img {
+            max-width: 50%;
+            border-radius: 10px;
+        }
+
+        .section#beloften .content {
+            flex: 1;
+            background: #fff;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .section#beloften .content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section#advies {
+            background: #0073e6;
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .section#advies .action-btn {
+            background: #e60000;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .footer {
+            background: #2e2d2d;
+            color: #fff;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .footer .column {
+            flex: 1 1 calc(25% - 2rem);
+        }
+
+        .footer .social-media {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer .social-media a {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .partner-logos {
+            padding: 2rem;
+            background: #f4f4f4;
+            display: flex;
+            align-items: center;
+        }
+
+        .partner-logos img {
+            max-width: 100px;
+            margin: 0 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <span class="logo"><img src="images/logo.png" alt="Logo"></span>
+        <ul>
+            <li><a href="#">Producten</a></li>
+            <li><a href="#">Zakelijk</a></li>
+            <li><a href="#">Klantenservice</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>Vernieuwende diensten die het leven verrijken.</h1>
+        <p>Met de mens altijd centraal.</p>
+        <a href="#" class="action-btn">Neem contact op</a>
+    </header>
+
+    <main>
+        <section id="producten" class="section">
+            <h2>Onze Producten</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Studenten</h3>
+                    <p>Speciaal voor studentenhuizen.</p>
+                    <a href="#" class="action-btn">Neem contact op</a>
+                </div>
+                <div class="card">
+                    <h3>Vakantieparken</h3>
+                    <p>Voor grote gezinnen.</p>
+                    <a href="#" class="action-btn">Neem contact op</a>
+                </div>
+                <div class="card">
+                    <h3>Zorginstellingen</h3>
+                    <p>Ultrasnel internet voor iedereen.</p>
+                    <a href="#" class="action-btn">Neem contact op</a>
+                </div>
+                <div class="card">
+                    <img src="images/example.jpg" alt="Voorbeeld Product">
+                    <h3>Nieuw Pakket</h3>
+                    <p>Ruimte voor logo en details.</p>
+                    <a href="#" class="action-btn">Neem contact op</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="beloften" class="section">
+            <img src="images/beloften.jpg" alt="Zakelijke diensten">
+            <div class="content">
+                <h2>Onze Beloften</h2>
+                <p>Zakelijk internet & TV, speciaal voor het mkb.</p>
+                <a href="#" class="action-btn">Wat ons uniek maakt</a>
+            </div>
+        </section>
+
+        <section id="advies" class="section">
+            <h2>Vraag Advies Aan</h2>
+            <p>Onze ICT-experts staan voor u klaar.</p>
+            <a href="#" class="action-btn">Neem contact op</a>
+        </section>
+
+        <section id="partners" class="partner-logos">
+            <img src="images/partner1.png" alt="Partner 1">
+            <img src="images/partner2.png" alt="Partner 2">
+            <img src="images/partner3.png" alt="Partner 3">
+            <img src="images/partner4.png" alt="Partner 4">
+            <img src="images/partner5.png" alt="Partner 5">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="column">
+            <h3>Producten</h3>
+            <ul>
+                <li><a href="#">Internet</a></li>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Telefonie</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Zakelijk</h3>
+            <ul>
+                <li><a href="#">Over ons</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Klantenservice</h3>
+            <ul>
+                <li><a href="#">Veelgestelde vragen</a></li>
+                <li><a href="#">Storingen</a></li>
+                <li><a href="#">Handleidingen</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Over Ons</h3>
+            <ul>
+                <li><a href="#">Onze missie</a></li>
+                <li><a href="#">Nieuws</a></li>
+                <li><a href="#">Vacatures</a></li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://twitter.com" target="_blank">X (Twitter)</a>
+            <a href="https://tiktok.com" target="_blank">TikTok</a>
+        </div>
+    </footer>
+</body>
+</html>

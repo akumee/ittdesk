@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Provider - Consumenten en Zakelijke Markt</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Open-sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .nav {
+			background: transparent;
+			color: #fff;
+			padding: 1rem 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 1000;
+			box-sizing: border-box; /* Zorg dat paddings binnen de breedte van de navbar blijven */
+		}
+
+		.nav .logo img {
+			height: 60px;
+			max-width: 100%; /* Zorg ervoor dat het logo niet buiten zijn container groeit */
+		}
+
+		.nav ul {
+			list-style: none;
+			display: flex;
+			gap: 1.5rem;
+			align-items: center;
+		}
+		
+		.nav ul li a {
+			color: #fff;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 1.2rem;
+			white-space: nowrap; /* Zorg dat lange teksten niet afbreken */
+			padding: 0.5rem 1rem; /* Ruimte rondom de links voor betere klikbaarheid */
+		}
+
+		.nav ul li a:hover {
+			color: #0073e6; /* Verander de kleur bij hover */
+		}
+		
+		.nav ul li ul {
+            display: none;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            padding: 0;
+            margin: 0;
+            z-index: 10;
+            border-radius: 0.5rem;
+        }
+		
+		.nav ul li ul li a {
+            padding: 0.5rem 1rem;
+            white-space: nowrap;
+            display: block;
+        }
+		
+		.nav ul li:hover ul {
+            display: block;
+        }
+
+        /* Header Styles */
+        .header {
+            background-image: url('https://www.ittdesk.nl/wp-content/uploads/2014/09/slide_2_itt-1680x1119.jpg');
+            background-size: cover;
+			background-repeat: no-repeat;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: #fff;
+            padding: 2rem 9rem 0 9rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+			text-shadow: #0073e6 1px 0 15px;
+			margin: 0;
+        }
+
+        .header p {
+            margin: 2rem 0;
+			text-shadow: #0073e6 1px 0 15px;
+        }
+
+        .header .action-btn {
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+		
+		.header .action-btn:hover {
+            border: 2px solid #0073e6;
+            background: transparent;
+            color: #0073e6;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+		
+		/* Help section */
+		.section#hulp {
+            background-color: #f4f4f4;
+            padding: 2rem 1rem;
+            text-align: left;
+        }
+
+        .section#hulp .links {
+            display: flex;
+            gap: 2rem;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .section#hulp .link {
+            background: #fff;
+            padding: 1rem;
+            flex: 1 1 calc(30% - 2rem);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .section#hulp .link h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.5rem;
+        }
+
+        .section#hulp .link .action-btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #00cc99;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Product Section */
+        .section#producten {
+            padding: 1rem 2rem;
+            background: linear-gradient(35deg, #fff6f0, #fc6b03);
+        }
+		
+		.section#producten h2 {
+			font-family: 'Open sans', sans-serif;
+			font-size: 3rem;
+			color: #000;
+		}
+        .section#producten .cards {
+            display: flex;
+			padding-bottom: 1.5rem;
+            gap: 1.5rem;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .section#producten .card {
+            background: #fff;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 10px;
+            flex: 1 1 calc(25% - 1.5rem);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+		.section#producten h1 {
+			color: #bbdd8c;
+		}
+
+        .section#producten .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .section#producten .card .action-btn {
+            margin-top: 1rem;
+            background-color: /*#0073e6*/ #8dc63f;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+		
+		.section#producten .card .action-btn:hover {
+            background-color: #bbdd8c;
+            color: #fff;
+		}
+		
+		.section#beloften {
+            background: #fff;
+            padding: 3rem 2rem;
+			margin: 0 2rem 0 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .section#beloften img {
+            max-width: 50%;
+            border-radius: 10px;
+        }
+
+        .section#beloften .content {
+            flex: 1;
+            background: #fff;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .section#beloften .content h2 {
+            margin-bottom: 1rem;
+        }
+		
+		.section#beloften .action-btn {
+            margin-top: 1rem;
+            background-color: /*#0073e6*/ #8dc63f;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+		
+		
+		.section#beloften .action-btn:hover {
+            background-color: #bbdd8c;
+            color: #fff;
+		}
+
+        .section#advies {
+			background:url('https://www.ittdesk.nl/wp-content/uploads/2014/09/slide_1_itt-1680x1119.jpg');
+			background-repeat: none;
+            color: #fff;
+			margin: 0 15rem 5rem 15rem;
+            text-align: center;
+            border-radius: 20px;
+			min-width: 40%;
+        }
+		
+		.section#advies .overlay {
+			background-color:rgba(51, 153, 212, 0.7);
+			padding: 6rem 2rem;
+			border-radius: 20px;
+			min-width: 40%;
+		}
+		
+		.section#advies p {
+			padding: 0.5rem 0 1.2rem 0;
+		}
+
+        .section#advies .action-btn {
+            background: #e60000;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+		
+		.section#advies .action-btn:hover {
+            background: transparent;
+			border: 2px solid #e60000;
+            color: #e60000;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Partner Section */
+        .partner-logos {
+			padding: 2rem 1rem;
+			background: #4d4d4d;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			text-align: center;
+		}
+
+		.partner-logos img {
+			max-width: 100px;
+			margin: 0 0.3rem 0 0.3rem;
+		}
+
+        /* Footer Styles */
+        .footer {
+            background: #2e2d2d;
+			border-top: 0.1rem solid #fff;
+            color: #fff;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #0073e6;
+            text-decoration: none;
+        }
+
+        .footer .column {
+            flex: 1 1 calc(25% - 2rem);
+        }
+		
+		.footer .column ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.footer .column ul li {
+			padding-bottom: 1rem;
+		}
+
+        .footer .social-media {
+			align-items: center;    /* Centreer items horizontaal */
+			justify-content: center; /* Centreer items verticaal */
+        }
+
+        .footer .social-media a {			
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <span class="logo"><img src="images/logo.png" alt="Logo"></span>
+        <ul>
+            <li>
+                <a href="#">Producten</a>
+                <ul>
+                    <li><a href="#internet">Internet</a></li>
+                    <li><a href="#tv">TV</a></li>
+                    <li><a href="#telefonie">Telefonie</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Klantenservice</a>
+                <ul>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#storingen">Storingen</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Zakelijk</a>
+                <ul>
+                    <li><a href="#oplossingen">Oplossingen</a></li>
+                    <li><a href="#advies">Advies</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>Vernieuwende diensten die het leven verrijken.</h1>
+        <p>Met de mens altijd centraal.</p>
+        <a href="#" class="action-btn">Neem contact op</a>
+    </header>
+
+    <main>
+		<section id="hulp" class="section">
+            <h2>Hulp nodig?</h2>
+            <p>Handige links voor ondersteuning bij uw diensten.</p>
+            <div class="links">
+                <div class="link">
+                    <h3>Internet Problemen</h3>
+                    <a href="#" class="action-btn">Meer info</a>
+                </div>
+                <div class="link">
+                    <h3>TV Problemen</h3>
+                    <a href="#" class="action-btn">Meer info</a>
+                </div>
+                <div class="link">
+                    <h3>Telefonie Problemen</h3>
+                    <a href="#" class="action-btn">Meer info</a>
+                </div>
+            </div>
+        </section>
+		
+        <section id="producten" class="section">
+            <h2>Productaanbod</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Studenten-pakketten</h3>
+                    <p><i>Speciaal voor studentenhuizen</i></p>
+					<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" role="img" color="rgba(0, 128, 201, 1)" class="min-w-[24px]"><path stroke="rgba(0, 128, 201, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.611 8.923 17.5 20 6.5"></path></svg> 100 Mbit/s download</p>
+					<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" role="img" color="rgba(0, 128, 201, 1)" class="min-w-[24px]"><path stroke="rgba(0, 128, 201, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.611 8.923 17.5 20 6.5"></path></svg> 25 Mbit/s upload</p>
+					<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" role="img" color="rgba(0, 128, 201, 1)" class="min-w-[24px]"><path stroke="rgba(0, 128, 201, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.611 8.923 17.5 20 6.5"></path></svg> SLA best effort</p>
+					<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" role="img" color="rgba(0, 128, 201, 1)" class="min-w-[24px]"><path stroke="rgba(0, 128, 201, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.611 8.923 17.5 20 6.5"></path></svg> Beschikbaarheid: 98%</p>
+					<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" role="img" color="rgba(0, 128, 201, 1)" class="min-w-[24px]"><path stroke="rgba(0, 128, 201, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.611 8.923 17.5 20 6.5"></path></svg> Downtime tolerantie: 7,3 dagen per jaar</p>
+					<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" role="img" color="rgba(0, 128, 201, 1)" class="min-w-[24px]"><path stroke="rgba(0, 128, 201, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.611 8.923 17.5 20 6.5"></path></svg> Levertijd binnen 2 weken</p>
+					<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" role="img" color="rgba(0, 128, 201, 1)" class="min-w-[24px]"><path stroke="rgba(0, 128, 201, 1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.611 8.923 17.5 20 6.5"></path></svg> Makkelijk doe-het-zelf pakket</p>
+					<p>vanaf <h1>32,95</h1> /mnd</p>
+                    <a href="#" class="action-btn">Offertes bekijken</a>
+                </div>
+                <div class="card">
+                    <h3>Vakantieparken/hotels pakketten</h3>
+                    <p>Voor grote gezinnen.</p>
+                    <a href="#" class="action-btn">Offertes bekijken</a>
+                </div>
+                <div class="card">
+                    <h3>Zorginstellingen pakketten</h3>
+                    <p>Ultrasnel internet voor iedereen.</p>
+                    <a href="#" class="action-btn">Offertes bekijken</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="beloften" class="section">
+            <img src="images/beloften.jpg" alt="Zakelijke diensten">
+            <div class="content">
+                <h2>Onze Beloften</h2>
+                <p>Zakelijk internet & TV, speciaal voor het mkb.</p>
+                <a href="#" class="action-btn">Wat ons uniek maakt</a>
+            </div>
+        </section>
+
+        <section id="advies" class="section">
+			<section id="advies" class="overlay">
+				<h2>Deskundig advies nodig?</h2>
+				<p>Onze ICT-experts staan voor u klaar bij het vinden van de beste zakelijke internet & TV of telefonie oplossingen in het MKB. Neem contact op voor deskundig advies op maat.</p>
+				<a href="#" class="action-btn">Neem contact op</a>
+			</section>
+        </section>
+
+        <section id="partners" class="partner-logos">
+            Wij zijn solutionpartner van <img src="https://www.ittdesk.nl/wp-content/uploads/2020/ziggo-logo.png" alt="">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="column">
+            <h3>Consumenten</h3>
+            <ul>
+                <li><a href="#">Internet</a></li>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Telefonie</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Zakelijk</h3>
+            <ul>
+                <li><a href="#">Offerte aanvragen</a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Klantenservice</h3>
+            <ul>
+                <li><a href="#">Veelgestelde vragen</a></li>
+                <li><a href="#">Storingen</a></li>
+                <li><a href="#">Handleidingen</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Over ons</h3>
+            <ul>
+                <li><a href="#">Over ittdesk</a></li>
+				<li><a href="#">Algemene voorwaarden</a></li>
+                <li><a href="#">Privacyverklaring</a></li>
+                <li><a href="#">Vacatures</a></li>
+				<li><a href="#">Contactgegevens</a></li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+			<a href="https://x.com" target="_blank">X</a>
+		</div>
+		</footer>
+</body>
+</html>
+
