@@ -1,0 +1,14 @@
+body {
+    font-family: 'Open-sans', sans-serif;
+}
+
+#headerCoverSupport {
+    background: url(../images/header-stock-slide-2.jpg);
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+}
+
+#block-inline   {
+    
+}
