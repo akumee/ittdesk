@@ -4,109 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ittdesk - Homepage</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <script src="js/bootstrap.bundle.min.js"></script>
+		</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('nav');
+    const scrollThreshold = 5;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= scrollThreshold) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+      });
+    });
+    </script>
   </head>
   <body>
-    <div
-      class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm opacity-75 d-none d-lg-block"
-      style="height: 50px"
-    >
-      <div class="container-fluid">
-        <div
-          id="block-inline"
-          class="collapse navbar-collapse ms-auto justify-content-start"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <div
-                class="nav-link text-light"
-                style="padding-left: 3rem; padding-top: -5px"
-              >
-                <img
-                  src="images/check-icon.svg"
-                  style="height: 20px; width: 20px"
-                  alt=""
-                />&nbsp;Deskundig advies
-              </div>
-            </li>
-            <li class="nav-link">
-              <div class="nav-link text-light">
-                <img
-                  src="images/check-icon.svg"
-                  style="height: 20px; width: 20px"
-                  alt=""
-                />&nbsp;Betrouwbaar Netwerk
-              </div>
-            </li>
-            <li class="nav-link">
-              <div class="nav-link text-light">
-                <img
-                  src="images/check-icon.svg"
-                  style="height: 20px; width: 20px"
-                  alt=""
-                />&nbsp;Persoonlijke service
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="collapse navbar-collapse justify-content-end">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link link-light" href="tel:0850140141"
-                >085-014 0141</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link-light" href="#link1">Over ons</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link-light" href="#link2">Storingen</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link-light" href="#link3">Werken bij</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <nav class="navbar bg-light" style="height: 100px">
-      <div class="container-fluid">
-        <div class="navbar-brand">
-          <img src="images/logo.png" alt="" style="height: 50px" />
-        </div>
-
-        <div class="nav-item dropdown">
-          <button
-            class="navbar-toggler"
-            type="button"
-            id="navbarDarkDropdownMenuLink"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
-            aria-labelledby="navbarDarkDropdownMenuLink"
-          >
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <div class="flex-col p-0">
+    <header id="section-header-block" class="text-light">
+      <nav class="navbar fixed-top" style="height: 100px">
+        <div class="container-fluid">
+          <div class="navbar-brand">
+            <img src="images/logo.png" alt="" style="height: 50px" />
+          </div>
+  
+          <div class="nav-item dropdown">
+            <button
+              class="navbar-toggler"
+              type="button"
+              id="navbarDarkDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
+              aria-labelledby="navbarDarkDropdownMenuLink"
+            >
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <header id="headerCoverSupport" class="text-light">
+      </nav>
       <div class="d-flex d-none d-lg-block">
         <div class="d-sm-flex pbg-light">
           <div
-            class="card rounded-pill justify-content-center"
+            class="card rounded-pill"
             style="
               max-width: 400px;
-              margin: 4rem 0 4rem 6.7rem;
+              margin: 10rem 0 4rem 6.7rem;
               padding: 50px 7px 50px 7px;
               border-radius: 100px !important;
             "
@@ -133,7 +97,267 @@
       </div>
     </header>
     <main>
-      <div class="container">asdf</div>
+      <div class="container">
+        <div class="d-flex row row-cols-4 g-4 my-4">
+          <div class="d-flex col">
+              <div class="card rounded-pill justify-content-center" id="section-4blocks-characteristics"> 
+                <div class="card-body">
+                    <div class="card-text justify-content-center">
+                      <img
+                      src="images/handshake.svg"
+                      alt=""
+                      style="height: 150px; width: 150px"
+                      class="mx-auto d-block"
+                    />
+                      <h3>Lorem, ipsum dolor</h3>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="d-flex col">
+            <div class="card rounded-pill justify-content-center" id="section-4blocks-characteristics">
+              <div class="card-body">
+                  <div class="card-text justify-content-center">
+                    <img
+                      src="images/handshake.svg"
+                      alt=""
+                      style="height: 150px; width: 150px"
+                      class="mx-auto d-block"
+                    />
+                    <h3>Lorem, ipsum dolor</h3>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="d-flex col">
+          <div class="card rounded-pill justify-content-center" id="section-4blocks-characteristics">  
+            <div class="card-body">
+                <div class="card-text justify-content-center">
+                  <img
+                      src="images/handshake.svg"
+                      alt=""
+                      style="height: 150px; width: 150px"
+                      class="mx-auto d-block"
+                    />
+                  <h3>Lorem, ipsum dolor</h3>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="d-flex col">
+        <div class="card rounded-pill justify-content-center" id="section-4blocks-characteristics">
+          <div class="card-body">
+              <div class="card-text justify-content-center">
+                <img
+                      src="images/handshake.svg"
+                      alt=""
+                      style="height: 150px; width: 150px"
+                      class="mx-auto d-block"
+                    />
+                <h3>Lorem, ipsum dolor</h3>
+              </div>
+          </div>
+        </div>
+    </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid" id="section-block-promises">
+        <div
+          class="card rounded-pill float-end"
+          style="
+            width: 300px;
+            margin: 4rem 150px 4rem 0;
+            border-radius: 10px !important;
+          "
+        >
+          <div
+            class="card-title px-2"
+            style="padding: 20px 0 0 20px"
+          >
+            <h1 class="card-title">Onze Beloften</h1>
+          </div>
+          <div class="card-text" style="padding: 0 20px 20px 20px">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis eligendi quod aperiam dolorem, odit magnam tempora est illum possimus velit nam ut fugit obcaecati!
+            <div class="card-text" style="margin-top: 12px">
+              <a href="#" class="btn btn-primary p-2"
+                >Meer informatie</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid" id="section-block-support">
+        <div class="row row-cols-4 p-5 mb-4"> 
+          <div class="d-flex col">
+              <div class="card rounded-pill justify-content-center" id="section-4blocks-characteristics"> 
+                <div class="card-body">
+                    <div class="card-text justify-content-center">
+                      <h3>Lorem, ipsum</h3>
+                      <div class="row">
+                        <div class="col">
+                          <p><a href="">row1</a></p>
+                          <p><a href="">row1</a></p>
+                          <p><a href="">row1</a></p>
+                          <p><a href="">row1</a></p>
+                          <p><a href="">row1</a></p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="d-flex col">
+            <div class="card rounded-pill justify-content-center" id="section-4blocks-characteristics"> 
+              <div class="card-body">
+                  <div class="card-text justify-content-center">
+                    <h3>Lorem, ipsum</h3>
+                    <div class="row">
+                      <div class="col">
+                        <p><a href="">row1</a></p>
+                        <p><a href="">row1</a></p>
+                        <p><a href="">row1</a></p>
+                        <p><a href="">row1</a></p>
+                        <p><a href="">row1</a></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="d-flex col">
+          <div class="card rounded-pill justify-content-center" id="section-4blocks-characteristics"> 
+            <div class="card-body">
+                <div class="card-text justify-content-center">
+                  <h3>Lorem, ipsum</h3>
+                  <div class="row">
+                    <div class="col">
+                      <p><a href="">row1</a></p>
+                      <p><a href="">row1</a></p>
+                      <p><a href="">row1</a></p>
+                      <p><a href="">row1</a></p>
+                      <p><a href="">row1</a></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="d-flex col">
+        <div class="card rounded-pill justify-content-center" id="section-4blocks-characteristics"> 
+          <div class="card-body">
+              <div class="card-text justify-content-center">
+                <h3>Lorem, ipsum</h3>
+                <div class="row">
+                  <div class="col">
+                    <p><a href="">row1</a></p>
+                    <p><a href="">row1</a></p>
+                    <p><a href="">row1</a></p>
+                    <p><a href="">row1</a></p>
+                    <p><a href="">row1</a></p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="section-block-advice-overlay" style="width: 40%; min-width: 60%">
+        <div
+        id="section-block-advice"
+        class="card rounded-pill justify-content-center mx-auto text-white"
+        style="border-radius: 10px !important;"
+        >
+        <div
+          class="card-title"
+          style="padding: 20px 0 0 20px"
+        >
+          <h1 class="card-title">Lorem, ipsum</h1>
+        </div>
+        <div class="card-text" style="padding: 0 20px 20px 20px">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt id sed quisquam excepturi distinctio commodi, delectus fugiat reiciendis! Explicabo, omnis! Maiores molestias ipsum magnam quia amet explicabo voluptate, voluptatem ipsa illum, voluptates deserunt mollitia tempora, facere aut debitis! Amet eius quis dolorem provident excepturi explicabo impedit sint ut soluta corrupti tempore, adipisci nesciunt fugiat odit, inventore ipsa, cum earum pariatur corporis ex saepe iste quaerat alias. Minus qui ab veniam optio voluptas dignissimos tenetur maiores. Non porro odit facilis mollitia. Beatae dicta sint esse accusantium, debitis fugit repellat veritatis aspernatur optio quam perferendis reiciendis laudantium maiores quod nostrum, repudiandae molestiae cupiditate vitae eum a accusamus tenetur. Officiis ipsam nostrum vel unde odio nobis sequi placeat inventore minus alias exercitationem praesentium soluta id porro voluptatibus dolores veritatis est aliquid, ad magni. Dolor ut fugit amet, quod a fugiat consequuntur aspernatur! Pariatur unde debitis odit voluptas? Obcaecati enim iusto veritatis fuga possimus?
+          <div class="card-text" style="margin-top: 12px">
+            <a href="#" class="btn btn-primary" style="padding: 0.5em"
+              >Meer informatie</a
+            >
+          </div>
+        </div>
+      </div>
+      </div>
     </main>
+    <footer>
+      
+      <div class="container-fluid d-flex text-white justify-content-center align-self-center" id="section-block-partners" style="padding: 2rem 1rem;border-bottom: 0.1rem solid #fff">
+        <div class="">
+          Wij zijn solutionpartner van <img src="https://www.ittdesk.nl/wp-content/uploads/2020/ziggo-logo.png" alt="">
+        </div>
+      </div>
+     
+      <div class="container-fluid justify-content-center text-white pt-5" id="section-block-footer">
+          <div class="row">
+            <div class="col">
+              <h3>Lorem</h3>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+            </div>
+            <div class="col">
+              <h3>Ipsum</h3>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+            </div>
+            <div class="col">
+              <h3>Dolor</h3>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+            </div>
+            <div class="col">
+              <h3>Sit</h3>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+              <p><a href="">row1</a></p>
+            </div>
+          </div>
+          <div class="d-flex">
+              <div class="card bg-transparent justify-content-center ps-2 ms-2 my-2 border-white" style="width:50px;height:50px">
+                <a href=""><img src="images/facebook-social.svg" alt="" style="height:35px"></a>
+              </div>
+              <div class="card bg-transparent justify-content-center ps-2 ms-2 my-2 border-white" style="width:50px;height:50px">
+                <a href=""><img src="images/instagram-social.svg" alt="" style="height:35px"></a>
+              </div>
+              <div class="card bg-transparent justify-content-center ps-2 ms-2 my-2 border-white" style="width:50px;height:50px">
+                <a href=""><img src="images/twitter-social.svg" alt="" style="height:35px"></a>
+              </div>
+            </div>
+        </div>
+      
+      <div class="d-flex overflow-hidden justify-content-between m-2">
+          <div class="d-flex p-2"><img src="images/logo.png" alt="" style="height: 50px"></div>
+          <div class="d-flex py-4"><a href="">Algemene voorwaarden</a></div>
+          <div class="d-flex py-4"><a href="">Verwerkersovereenkomst</a></div>
+          <div class="d-flex py-4"><a href="">Privacybeleid</a></div>
+          <div class="d-flex py-4"><a href="">Cookieverklaring</a></div>
+          <div class="d-flex py-4">&copy; 2025- Alle rechten voorbehouden</div>
+        </div>
+      </div>
+    </footer>
+  </div>
   </body>
 </html>

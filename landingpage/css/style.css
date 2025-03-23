@@ -2,13 +2,59 @@ body {
     font-family: 'Open-sans', sans-serif;
 }
 
-#headerCoverSupport {
-    background: url(../images/header-stock-slide-2.jpg);
-    background-size: cover;
-    height: 70vh;
-    display: flex;
+.navbar {
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    transition: all 0.4s;
+    
 }
 
-#block-inline   {
-    
+.navbar-scrolled {
+    background: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+#section-header-block {
+    background: url(../images/header-stock-slide-2.jpg);
+    background-size: cover;
+    height: 90vh;
+}
+
+#section-block-support {
+    background-color: #f4f4f4;
+}
+
+#section-block-promises {
+    background-image: url('../images/stock-photo-1.jpg');
+    background-size: cover;
+    overflow: hidden;
+    zoom: 1;
+}
+
+#section-4blocks-characteristics {
+    border-radius: 10px !important;
+}
+
+#section-block-advice-overlay {
+    background: url('../images/stock-slide-1.png');
+    background-repeat: none;
+    border-radius: 10px !important;
+    padding: 0;
+}
+
+#section-block-advice {
+    background-color: rgba(51, 153, 212, 0.7); 
+    margin-bottom: 20px;
+}
+
+#section-block-partners {
+    background: url('../images/noise-background-2.svg');
+    background-repeat: repeat;
+}
+
+#section-block-footer {
+    background: url('../images/noise-background.svg');
+    background-repeat: repeat;
 }
